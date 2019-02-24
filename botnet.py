@@ -5,7 +5,10 @@ import re
 import get_lan_ip
 import getpass
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 4c0309d1ca52337d530091092493a5bf4de6f4b7
 class Bot:
 
     def __init__(self, host, user, password):
