@@ -5,7 +5,8 @@ import numpy as np
 import re
 import get_lan_ip
 
-Class Bot:
+class Bot:
+
     def __init__(self, host, user, password):
         self.user = user
         self.password = password
