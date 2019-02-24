@@ -1,8 +1,14 @@
 import logging
 import asyncio
+import sys
+
 from run_bot import BotRunTime
 
 from kademlia.network import Server
+
+if len(sys.argv) != 1:
+    print("Usage: python first_node.py>")
+    sys.exit(1)
 
 handler = logging.FileHandler('/tmp/botnet.log')
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')

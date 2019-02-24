@@ -2,10 +2,12 @@ import logging
 import asyncio
 import sys
 
+from run_bot import BotRunTime
+
 from kademlia.network import Server
 
 if len(sys.argv) != 3:
-    print("Usage: python set.py <bootstrap node> <bootstrap port>")
+    print("Usage: python add_node.py <bootstrap node> <bootstrap port>")
     sys.exit(1)
 
 handler = logging.FileHandler('/tmp/botnet.log')
