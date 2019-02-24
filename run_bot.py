@@ -1,7 +1,5 @@
 import settings
 
-
-
 class BotRunTime:
     def __init__(self, loop, server):
         self.loop = loop
@@ -17,8 +15,13 @@ class BotRunTime:
 
     async def get_and_schedule_job(self):
         while True:
+<<<<<<< HEAD
             print('getting and scheduling job')
 	    
+=======
+            signed_task_description = self.server.get('task')
+            print(signed_task_description)
+>>>>>>> feaf8f2a5e320afe24e16b3fec030332a8b87e97
             await asyncio.sleep(settings.GET_JOB_CYCLE_TIME)
 
     def run(self):
