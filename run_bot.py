@@ -15,7 +15,7 @@ class BotRunTime:
 
     async def get_and_schedule_job(self):
         while True:
-            signed_task_description = server.get('task')
+            signed_task_description = self.server.get('task')
             print(signed_task_description)
             await asyncio.sleep(settings.GET_JOB_CYCLE_TIME)
 
