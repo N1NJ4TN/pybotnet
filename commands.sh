@@ -4,5 +4,5 @@ git clone https://github.com/laudecay/pybotnet.git
 echo 'password' > pybotnet/rockyou.txt
 sudo apt-get install python3
 cd pybotnet
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 python3 run_bot.py
