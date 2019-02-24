@@ -6,7 +6,7 @@ from Crypto import Signature, PublicKey, Hash
 
 from kademlia.network import Server
 
-if len(sys.argc) != 5:
+if sys.argc != 5:
     print("Usage: python set.py <bootstrap node> <bootstrap port> <key_file> <job_desc_file>")
     sys.exit(1)
 
