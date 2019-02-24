@@ -1,21 +1,24 @@
 import settings
 
-async def infect():
-    while True:
-        print('infect')
-        await asyncio.sleep(settings.INFECTION_CYCLE_TIME)
 
-async def get_and_schedule_job():
-    while True:
-        print('getting and scheduling job')
-        await asyncio.sleep(settings.GET_JOB_CYCLE_TIME)
 
 class BotRunTime:
     def __init__(self, loop, server):
         self.loop = loop
         self.server = server
-        loop.create_task(infect())
+        loop.create_task(self.infect())
+        loop.create_task(self.get_and_schedule_job())
         self.run()
+
+    async def infect(self):
+        while True:
+            print('infect')
+            await asyncio.sleep(settings.INFECTION_CYCLE_TIME)
+
+    async def get_and_schedule_job(self):
+        while True:
+            print('getting and scheduling job')
+            await asyncio.sleep(settings.GET_JOB_CYCLE_TIME)
 
     def run(self):
         try:
